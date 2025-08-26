@@ -41,12 +41,26 @@
       <div class="flash">{{ messages[0] }}</div>
     {% endif %}
   {% endwith %}
-  <form action="{{ url_for('contact') }}" method="post" class="contact-form">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <textarea name="message" placeholder="Your Message" required></textarea>
-    <button type="submit" class="btn">Send Message</button>
-  </form>
+<!-- Contact Section -->
+<section id="contact" class="contact-section" style="padding:4rem 2rem; display:flex; flex-wrap:wrap; gap:2rem; background:rgba(10,18,38,0.95); border-radius:12px;">
+  
+  <!-- Left: Contact Form -->
+  <div style="flex:1; min-width:280px;">
+    <h2 style="font-size:2.5rem; margin-bottom:1.5rem; color:#f472b6;">Contact Me</h2>
+    <form action="{{ url_for('contact') }}" method="post" class="contact-form" style="display:flex; flex-direction:column; gap:0.8rem;">
+      <input type="text" name="name" placeholder="Your Name" required style="padding:0.7rem; border-radius:8px; border:none; background:rgba(255,255,255,0.05); color:#e6eef8;">
+      <input type="email" name="email" placeholder="Email" required style="padding:0.7rem; border-radius:8px; border:none; background:rgba(255,255,255,0.05); color:#e6eef8;">
+      <textarea name="message" placeholder="Your Message" required style="padding:0.7rem; border-radius:8px; border:none; background:rgba(255,255,255,0.05); color:#e6eef8; min-height:140px; resize:vertical;"></textarea>
+      <button type="submit" class="btn" style="cursor:pointer; border:none; padding:0.7rem; border-radius:8px; background:linear-gradient(90deg,#7dd3fc,#60a5fa); color:#041024; font-weight:600; transition:transform 0.2s;">Send Message</button>
+    </form>
+  </div>
+
+  <!-- Right: Chatbot iframe -->
+  <div style="flex:1; min-width:280px;">
+    <iframe src="https://console.dialogflow.com/api-client/demo/embedded/your-demo-chatbot"
+            width="100%" height="420px" style="border-radius:12px; border:none; box-shadow:0 6px 18px rgba(0,0,0,0.4);"></iframe>
+  </div>
+
 </section>
 
 {% endblock %}
